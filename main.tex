@@ -30,7 +30,8 @@
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
 \usepackage[backend=bibtex]{biblatex}
-\bibliography{Bibliography.bib}
+\addbibresource{Bibliography.bib}
+% \bibliography{Bibliography.bib}
 
 \title{\ttitle} % Defines the thesis title - don't touch this
 
@@ -46,7 +47,7 @@
 \lhead{} % Clears the left side page header
 
 \pagestyle{fancy} % Finally, use the "fancy" page style to implement the
-                  %FancyHdr headers
+%FancyHdr headers
 
 % Input all the variables used in the document. Please fill out the
 % variables.tex file with all your details.
@@ -59,23 +60,26 @@
     \edef\@temp{\the\lst@token}%
     \ifx\@temp\@lbracket \color{black}%
     \else\ifx\@temp\@rbracket \color{black}%
-    \else\ifx\@temp\@colon \color{black}%
-    \else \color{vorange}%
-    \fi\fi\fi
+        \else\ifx\@temp\@colon \color{black}%
+            \else \color{vorange}%
+            \fi\fi\fi
 }
 \makeatother
 %-------------------------------------------------------------------------------
 %   NON-CONTENT PAGES
 %-------------------------------------------------------------------------------
-\maketitle
+% \maketitle %commenting to avoid multiple title pages
 \titleP
 \addtocontents{toc}{\vspace{-3em}} % Add a gap in the Contents, for aesthetics
 
-\AbstractSheet
+% not sure if including this will fall under "midsem report standards". 
+% \AbstractSheet
 
-\begin{acknowledgements}
-    \lipsum[1-2]
-\end{acknowledgements}
+% commenting acknowledgements because I don't want to write this for a midsem report (my prof didn't even give me a format)
+
+% \begin{acknowledgements}
+%     \lipsum[1-2]
+% \end{acknowledgements}
 
 %-------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -93,7 +97,7 @@
 \lhead{\emph{List of Figures}}
 \listoffigures % Write out the List of Figures
 
- % Set the left side page header to "List of Tables"
+% Set the left side page header to "List of Tables"
 \lhead{\emph{List of Tables}}
 \listoftables % Write out the List of Tables
 \addtocontents{toc}{\vspace{1em}}
@@ -104,14 +108,13 @@
 
 % \clearpage % Start a new page
 
-%  % Set the line spacing to 1.5, this makes the following tables easier to read
+% Set the line spacing to 1.5, this makes the following tables easier to read
 % \setstretch{1.5}
 
 % \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 % \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 % {
-% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
-% %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+%     \textbf{wBMS} & \textbf{w}ireless \textbf{B}attery \textbf{M}onitoring \textbf{S}ystem \\
 % }
 
 %-------------------------------------------------------------------------------
@@ -151,10 +154,11 @@
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-\input{Chapters/Chapter1}
-% \input{Chapters/Chapter2}
-% \input{Chapters/Chapter3}
-% \input{Chapters/Chapter4}
+% \input{Chapters/Chapter1} %legacy import. Actually a good read if you're new to this whole concept
+\input{Chapters/Introduction.tex}
+\input{Chapters/Product walkthrough.tex}
+\input{Chapters/Testing methodologies.tex}
+\input{Chapters/Conclusion and future work.tex}
 % \input{Chapters/Chapter5}
 %\input{Chapters/Chapter6}
 %\input{Chapters/Chapter7}
@@ -171,8 +175,9 @@
 % folder
 % Uncomment the lines as you write the Appendices
 
-\input{Appendices/AppendixA}
-\input{Appendices/AppendixB}
+% Not sure I need Appendices yet
+% \input{Appendices/AppendixA}
+% \input{Appendices/AppendixB}
 %\input{Appendices/AppendixC}
 
 \addtocontents{toc}{\vspace{1.5em}} % Add a gap in the Contents, for aesthetics
@@ -183,10 +188,11 @@
 %	BIBLIOGRAPHY
 %-------------------------------------------------------------------------------
 
+% Will be updating this in full later on. Not sure what I can or cannot update given the confedentialy restrictions of my PS station. 
 \label{Bibliography}
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
 
-\printbibliography
+% \printbibliography
 
 \end{document}

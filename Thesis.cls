@@ -231,11 +231,11 @@ supervision.\\[2.5cm]
     %
     \begin{minipage}{.55\textwidth}
       \textbf{Station:} \pstation\\
-      \textbf{Duration:} 02\textsuperscript{nd} August - 21\textsuperscript{st} December 2021
+      \textbf{Duration:} 04\textsuperscript{th} July - 15\textsuperscript{th} December 2023
     \end{minipage}%
     \begin{minipage}{0.45\textwidth}
       \textbf{Centre:} \pcentre\\
-      \textbf{Date of Submission:} 23\textsuperscript{rd} August 2021
+      \textbf{Date of Submission:} 15\textsuperscript{th} December 2023
     \end{minipage}
     %
     %
@@ -256,7 +256,7 @@ supervision.\\[2.5cm]
       \mentor                           & \mentordesig                    \\[0.3cm] 
       \textbf{Name of PS Faculty} & \textbf{Designation} \\ 
       \psfacultyone                           & \psfacultyonedesig                    \\
-      \psfacultytwo                           & \psfacultytwodesig                   
+      % \psfacultytwo                           & \psfacultytwodesig                   %UNCOMMENT HERE IN CASE OF MULTIPLE FACULTIES
       \end{tabular}
       \end{table}
     
@@ -301,7 +301,7 @@ supervision.\\[2.5cm]
     \begin{minipage}{.7\textwidth}
       \centering
       \setstretch{2}
-      {\LARGE \bfseries \ttitle}\\[1cm] % Thesis title
+      {\LARGE\bfseries \ttitle}\\[1cm] % Thesis title
       \setstretch{1.3}
     \end{minipage}
     
@@ -431,8 +431,8 @@ supervision.\\[2.5cm]
 \usepackage{trace}
 
 \usepackage[toc]{glossaries}
-\glossarystyle{long}
-\makeglossaries
+% \glossarystyle{long}
+% \makeglossaries
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \pdfstringdefDisableCommands{

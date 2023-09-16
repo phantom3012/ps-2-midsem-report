@@ -35,3 +35,8 @@ This template has examples built in for easy adaptation. Please remove any of th
 ## Notes
 * Suggestions and pull requests are welcome.
 * Credit to Nishant Raman for providing a base for me to work on.
+
+## Changes from the original repo
+* psfacultytwo has been commented out in the abstract sheet present and defined in Thesis.cls
+* Glossaries have been commented out throughout
+* Deprecated bibliography entry code has been commented out
