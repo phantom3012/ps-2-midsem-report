@@ -8,6 +8,8 @@
 
 In the overarching architecture of the wBMS, the fundamental structure comprises two primary components: managers and nodes. Notably, a single configuration can accommodate multiple instances of both managers and nodes. Each node encompasses a combination of essential elements, including a radio, microcontroller, and a sensor, referred to as the BMIC. The combination of the radio and the microcontroller is called the Pinnacle.
 
+BMICs come in various sensor families. Each family essentially differs in the hardware architecture built around the sensor. Within each family, there are various sensors available that essentially form the BMIC which mainly differ in the number of cells monitored.
+
 Conversely, the manager mirrors this fundamental setup, featuring a radio and microcontroller specifically configured to receive data transmitted from the nodes. Facilitating wireless communication, nodes transmit vital information collected from the BMIC to the manager through the radio interface. The manager, in turn, functions as the central hub for collecting and aggregating this transmitted data.
 
 To facilitate seamless utilization of this collected data by other microcontrollers, a specialized software component known as the WIL is employed. This library when used with the applications of the client microcontroller, serves as the pathway through which data from the manager is made accessible and readily deployable for various purposes and applications.
