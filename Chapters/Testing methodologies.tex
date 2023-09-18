@@ -6,26 +6,31 @@
 \lhead{Chapter 3. \emph{Testing methodologies}}
 
 \section{Original test scripts}
-% Explain the whole concept of the test scripts repo and how it works on a broad level. 
-% Explain how it's neither OOPs or scripts and how it's a hybrid of both
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+The original execution of this procedure was conducted utilising the Python programming language, employing a hybrid methodology that integrates scripting techniques with the principles of Object-Oriented Programming (OOP). Although this particular methodology has proven to be effective in achieving the intended outcomes, it has posed several difficulties in terms of sustainability and flexibility. As the system has undergone development, it has been evident that the introduction of new needs entails making many modifications dispersed throughout different files, resulting in a codebase that is more vulnerable to errors and less modular.
+
+In response to the challenges identified, a decision has been made to pivot toward an alternative approach. This new approach will centre on the utilization of Python packaging and will adhere to OOP principles with an emphasis on strict adherence to these principles.
 
 \section{Python packages}
-% Explain the harmonization
-% Explain how it keeps it all simple and organised and how everything should basically read like english compared to JAMA requirements
-% Explan the concept of pytest broadly and how it ties the following packages together
-% Explain how you documented all APIs using sphinx
+
+As previously discussed, a significant choice has been made to adopt Python packages as the fundamental element at every stage of the process, encompassing the uploading of containers to the node and the extraction of relevant data from it. Furthermore, a specialised software package has been carefully designed to enhance the fault injection procedure using the Emulator.
+
+The integration of Sphinx, a significant tool, has greatly facilitated the efficient documentation of package usage. The automatic features of Sphinx allow for the development of extensive API documentation for each package. This is dependent on the existence of proper docstrings that are placed at the beginning of each API declaration within the module.
+
+To test the setup end-to-end, a decision has been taken to use unit-testing packages such as pytest. This will allow users new to the wBMS system easy access to essential APIs and tools required to test various aspects of it with just a few API calls. This makes the whole process modular. Paired with pytest, a user can also generate visually appealing reports that can be readily referenced to provide details to other teams about the functionalities of various components in the system.
 
 \subsection{Flashing and logging}
-% Explain how this is needed importantly to flash devices and metion about UART logs if you haven't already
+
+Among the various packages available to the users, this package is the most important. This package deals with the task of flashing the firmware to various microcontrollers across the system, without which no component will boot up. This package also deals with logging various events across different components to provide a deeper understanding of the exact working of each component in a certain scenario.
 
 \subsection{Explorer APIs}
-% Explain what Explorer is and why we need a specific package for this
-% Explan how you triggering APIs here directly translates to talking to the system
+
+"Explorer" is a solution offered by ADI, that serves as a complementary solution to augment the functionality of the wBMS system, simplifying the monitoring of essential components. This application exposes specific endpoints that can be accessed through scripts, thereby providing access to important information. Leveraging this capability, we have compiled all available APIs into a package, designed to be invoked by users with the necessary parameters.
+
+This consolidated package represents a significant advancement in streamlining complex tasks that would otherwise demand manual execution to achieve the desired outcomes. By seamlessly integrating this package in conjunction with the pytest framework, users can look forward to a user-friendly and efficient experience when manipulating and rigorously testing the system according to their specific requirements.
 
 \subsection{Emulator package}
-% Recap the concept of injecting faults with the emulator here. If you haven't defined it yet, go to software in the prev chapter and define it
-% Explain how this is what you extensively worked on (again, 3rd person?) and the various features it offers. 
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+The emulator package significantly streamlines and modularizes the process of injecting faults, offering enhanced flexibility and ease of use. By exposing specific APIs and abstracting intricate functions related to communication with the Emulator through the UART protocol, this package empowers users to seamlessly inject faults and modify system parameters to suit their specific needs.
+
+One notable advantage lies in the package's compatibility with integration into a pytest framework, facilitating rapid development and diminishing the time dedicated to debugging issues stemming from the test setup itself.
