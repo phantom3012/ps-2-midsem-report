@@ -37,7 +37,7 @@
 
 \begin{document}
 
-\frontmatter % Use roman numbering style (i, ii...) for the pre-content pages
+\frontmatter % Use Roman numbering style (i, ii...) for the pre-content pages
 
 \setstretch{1.3} % Line spacing of 1.3
 
@@ -73,9 +73,9 @@
 \addtocontents{toc}{\vspace{-3em}} % Add a gap in the Contents, for aesthetics
 
 % not sure if including this will fall under "midsem report standards". 
-% \AbstractSheet
+\AbstractSheet
 
-% commenting acknowledgements because I don't want to write this for a midsem report (my prof didn't even give me a format)
+% commenting acknowledgements because I don't want to write this for a mid-sem report (my prof didn't even give me a format)
 
 % \begin{acknowledgements}
 %     \lipsum[1-2]
@@ -94,13 +94,13 @@
 \addtocontents{toc}{\vspace{1em}}
 
 % Set the left side page header to "List of Figures"
-\lhead{\emph{List of Figures}}
-\listoffigures % Write out the List of Figures
+% \lhead{\emph{List of Figures}}
+% \listoffigures % Write out the List of Figures
 
 % Set the left side page header to "List of Tables"
-\lhead{\emph{List of Tables}}
-\listoftables % Write out the List of Tables
-\addtocontents{toc}{\vspace{1em}}
+% \lhead{\emph{List of Tables}}
+% \listoftables % Write out the List of Tables
+% \addtocontents{toc}{\vspace{1em}}
 
 %-------------------------------------------------------------------------------
 %	ABBREVIATIONS
@@ -114,16 +114,17 @@
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
-    \textbf{wBMS} & \textbf{w}ireless \textbf{B}attery \textbf{M}onitoring \textbf{S}ystem \\
-    \textbf{OEM} & \textbf{O}riginal \textbf{E}quipment \textbf{M}anufacturer \\
-    \textbf{BMIC} & \textbf{B}attery \textbf{M}onitoring \textbf{I}ntegrated \textbf{C}ircuit \\
-    \textbf{WIL} & \textbf{w}BMS \textbf{I}nterface \textbf{L}ibrary \\
-    \textbf{SPF} & \textbf{S}ingle \textbf{P}oint \textbf{F}ault \\
-    \textbf{LF} & \textbf{L}atent \textbf{F}ault \\
+    \textbf{API} & \textbf{A}pplication \textbf{P}rogram \textbf{I}nterface \\
     \textbf{ASIL} & \textbf{A}utomotive \textbf{S}afety \textbf{I}ntegrity \textbf{L}evel \\
-    \textbf{SM} & \textbf{S}afety \textbf{M}echanism \\
+    \textbf{BMIC} & \textbf{B}attery \textbf{M}onitoring \textbf{I}ntegrated \textbf{C}ircuit \\
+    \textbf{FI} & \textbf{F}ault \textbf{I}njection \\
     \textbf{GPIO} & \textbf{G}eneral \textbf{P}urpose \textbf{I}nput / \textbf{O}utput \\
-    \textbf{FI} & \textbf{F}ault \textbf{I}njection
+    \textbf{LF} & \textbf{L}atent \textbf{F}ault \\
+    \textbf{OEM} & \textbf{O}riginal \textbf{E}quipment \textbf{M}anufacturer \\
+    \textbf{SM} & \textbf{S}afety \textbf{M}echanism \\
+    \textbf{SPF} & \textbf{S}ingle \textbf{P}oint \textbf{F}ault \\
+    \textbf{WIL} & \textbf{w}BMS \textbf{I}nterface \textbf{L}ibrary \\
+    \textbf{wBMS} & \textbf{w}ireless \textbf{B}attery \textbf{M}onitoring \textbf{S}ystem \\
 }
 
 %-------------------------------------------------------------------------------
@@ -158,12 +159,12 @@
 
 \mainmatter % Begin numeric (1,2,3...) page numbering
 
-\pagestyle{fancy} % Return the page headers back to the "fancy" style
+\pagestyle{fancy} % Return the page headers to the "fancy" style
 
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-% \input{Chapters/Chapter1} %legacy import. Actually, a good read if you're new to this whole concept
+% \input{Chapters/Chapter1} %legacy import. A good read if you're new to this whole concept
 \input{Chapters/Introduction.tex}
 \input{Chapters/Product walkthrough.tex}
 \input{Chapters/Testing methodologies.tex}

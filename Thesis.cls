@@ -235,7 +235,7 @@ supervision.\\[2.5cm]
     \end{minipage}%
     \begin{minipage}{0.45\textwidth}
       \textbf{Centre:} \pcentre\\
-      \textbf{Date of Submission:} 15\textsuperscript{th} December 2023
+      % \textbf{Date of Submission:} 15\textsuperscript{th} December 2023
     \end{minipage}
     %
     %
