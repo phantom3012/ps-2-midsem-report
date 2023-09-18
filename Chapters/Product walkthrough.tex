@@ -10,7 +10,7 @@ In the overarching architecture of the wBMS, the fundamental structure comprises
 
 BMICs come in various sensor families. Each family essentially differs in the hardware architecture built around the sensor. Within each family, there are various sensors available that essentially form the BMIC which mainly differ in the number of cells monitored.
 
-Conversely, the manager mirrors this fundamental setup, featuring a radio and microcontroller specifically configured to receive data transmitted from the nodes. Facilitating wireless communication, nodes transmit vital information collected from the BMIC to the manager through the radio interface. The manager, in turn, functions as the central hub for collecting and aggregating this transmitted data.
+The manager mirrors the fundamental setup of a node, featuring a radio and microcontroller specifically configured to receive data transmitted from the nodes. Facilitating wireless communication, nodes transmit vital information collected from the BMIC to the manager through the radio interface. The manager, in turn, functions as the central hub for collecting and aggregating this transmitted data.
 
 To facilitate seamless utilization of this collected data by other microcontrollers, a specialized software component known as the WIL is employed. This library when used with the applications of the client microcontroller, serves as the pathway through which data from the manager is made accessible and readily deployable for various purposes and applications.
 
