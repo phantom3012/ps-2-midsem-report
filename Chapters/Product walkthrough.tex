@@ -6,34 +6,22 @@
 
 \section{Hardware setup}
 
-In the overarching architecture of the wBMS, the fundamental structure comprises two primary components: managers and nodes. Notably, a single configuration can accommodate multiple instances of both managers and nodes. Each node encompasses a combination of essential elements, including a radio, microcontroller, and a sensor, referred to as the BMIC. The combination of the radio and the microcontroller is called the Pinnacle.
+In the overarching architecture of the wBMS, the fundamental structure comprises two primary components: a device to monitor battery data and a device that collects the relevant data (battery monitor sensors).
 
-BMICs come in various sensor families. Each family essentially differs in the hardware architecture built around the sensor. Within each family, there are various sensors available that essentially form the BMIC which mainly differ in the number of cells monitored.
+To facilitate seamless utilization of this collected data by client microcontrollers, a specialized software tool is employed which is designed to run parallel with compiled applications of said microcontroller that expose this data to be easily monitored via external methods.
 
-The manager mirrors the fundamental setup of a node, featuring a radio and microcontroller specifically configured to receive data transmitted from the nodes. Facilitating wireless communication, nodes transmit vital information collected from the BMIC to the manager through the radio interface. The manager, in turn, functions as the central hub for collecting and aggregating this transmitted data.
+It is important to recognise that the integrity of transmitted data may be vulnerable to numerous errors along its path due to the complex system architecture. Keeping in mind the various faults that could occur while transmitting data from one end to another, various safety guidelines have been agreed upon to be followed by the multiple components in the system.
 
-To facilitate seamless utilization of this collected data by other microcontrollers, a specialized software component known as the WIL is employed. This library when used with the applications of the client microcontroller, serves as the pathway through which data from the manager is made accessible and readily deployable for various purposes and applications.
-
-It is important to recognise that the integrity of transmitted data may be vulnerable to numerous errors along its path due to the complex system architecture. Notably, Single Point Faults (SPFs) and Latent Faults (LFs) are two different sorts of faults that could potentially be encountered by the BMIC, the main source of data. Other components in the system can also encounter faults and specific guidelines have been set in place to ensure each component that is involved in the system is rated to the highest standard of ASIL ratings: ASIL-D. However, the focus of this report will be on the BMIC and the scripts that run on the BMIC (BMS Scripts).
-
-SPFs are situations in which at least one system component deviates from conformity with the ASIL-D requirements, which constitutes an instant and abrupt breach of safety goals. These defects include a wide range of potential problems, from incorrect multiplexer configurations to overvoltage accidents that could damage any cell or the BMIC's GPIO voltage. An extensive list of these potential faults is described in a safety manual created for the BMIC.
-
-The safety guideline also outlines several crucial Safety Mechanisms (SMs) that must be adhered to. These techniques are intended to guarantee that, even in the presence of defects, the system can continue to warn relevant parts about the presence of a fault while supporting the ultimate goal of adhering to ASIL-D requirements.
-
-The Enforcer, a physical component of one of the wBMS solutions offered by ADI, checks the BMS scripts' adherence to SMs. Additionally, this component must adhere to its own rules in order to receive an ASIL-D rating.
+The safety guidelines outline certain measures that must be adhered to. These techniques are intended to guarantee that, even in the presence of defects, the system can continue to warn relevant parts about the presence of a fault while supporting the ultimate goal of adhering to set functional safety requirements
 
 \section{Software setup}
 
-Given the multiple pieces of hardware present in this setup, there has to be relevant software that runs on each of them. The software that essentially drives the BMIC is known as the BMS container.
+Given the multiple pieces of hardware present in this setup, there has to be relevant software that runs on each of them.
 
-BMS Scripts are assembly-like written codes that instruct the BMIC to gather various data points at various intervals. Since the scripts are essentially text files, they must be compiled into binary files that can be directly read by the BMIC. This process is done by an external compiler. To ensure proper compilation of the scripts, certain functionalities are built within the compiler to make sure the scripts it compiles adhere to decided safety standards.
+The sensor that essentially gathers the battery data is given certain instructions (through software) at certain intervals of time, which are then collected and ultimately reported to the client microcontroller that requests the data.
 
-Once the container is transferred to the node, the Enforcer schedules the tasks and sends the instructions over various time slices in fixed intervals to retrieve the data the manager would ultimately make available.
+A methodical approach is used, with these instructions serving as a key instrument, to ensure that the monitoring sensor complies with the safety regulations.
 
-A methodical approach is used, with scripts serving as a key instrument, to ensure that the BMIC complies with the strict safety regulations. The key component of this strategy is the intentional introduction of flaws into the system from an outside source. The focus then shifts to whether or not the scripts that are being executed produce warnings about these injected errors.
+In order to ensure the utmost stability of the sensor and compliance with established safety protocols, two potential approaches can be employed. Firstly, the sensor can be subjected to the injection of erroneous and unreliable instructions. Alternatively, the sensor's output can be intentionally corrupted, and the resulting responses at the monitoring end can be compared to a pre-existing baseline. This comparative analysis serves to evaluate the sensor's performance.
 
-This technique is a vital check on the BMIC's compliance with the stated SMs required for its operation. This verification technique evaluates the BMIC's capacity to recognise and react to deviations from safety protocols by purposefully introducing problems. Thus, it makes a substantial contribution to the overriding objective of making sure that the BMIC complies with the set safety criteria.
-
-Since it is virtually impossible to inject hardware faults (such as internally tampering with the multiplexer lines), we use an external device known as an "emulator" that simulates the responses given by the BMIC under cases of Fault Injection(FI). The emulator is also designed to work like a regular node in other circumstances. It essentially overrides the communication lines between the Enforcer and the node providing the respective fault data to the enforcer when a fault is injected.
-
-The system can also operate in several "modes" to synchronise the states of all devices. These modes enable the manager and the node to communicate effectively. Additionally, they also enable the node to continuously gather data.
+To aid in this process of cleanly monitoring the sensors, multiple test frameworks for the various components in the system have been designed and tested.
