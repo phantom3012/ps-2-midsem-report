@@ -231,7 +231,7 @@ supervision.\\[2.5cm]
     %
     \begin{minipage}{.55\textwidth}
       \textbf{Station:} \pstation\\
-      \textbf{Duration:} 04\textsuperscript{th} July - 15\textsuperscript{th} December 2023
+      \textbf{Duration:} 04\textsuperscript{th} July - 22\textsuperscript{nd} December 2023
     \end{minipage}%
     \begin{minipage}{0.45\textwidth}
       \textbf{Centre:} \pcentre\\

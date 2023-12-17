@@ -29,7 +29,7 @@
 
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage[backend=bibtex]{biblatex}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{Bibliography.bib}
 % \bibliography{Bibliography.bib}
 
@@ -68,18 +68,24 @@
 %-------------------------------------------------------------------------------
 %   NON-CONTENT PAGES
 %-------------------------------------------------------------------------------
-\maketitle 
+\maketitle
 \titleP
 \addtocontents{toc}{\vspace{-3em}} % Add a gap in the Contents, for aesthetics
-
-% not sure if including this will fall under "midsem report standards". 
+ 
 \AbstractSheet
 
-% commenting acknowledgements because I don't want to write this for a mid-sem report (my prof didn't even give me a format)
+% commenting acknowledgments
+\begin{acknowledgements}
+    I would like to express my most sincere gratitude to the following people for their help in the work leading to this report:
+    \begin{itemize}
+        \item Mr. Sharath Bala Subramanya, my mentor, for his invaluable insights, encouragement, and constant support leading to my daily progress.
+        \item Mr. Abhinandan Subbaro, team manager, for his encouragement and support throughout my project.
+        \item I am also very grateful to the rest of SVG, DevOps and the Connectivity team for their constant support and guidance throughout my internship.
+        \item Dr. Satisha Shet K, Instructor In-Charge, for his encouragement and support throughout my project.
+        \item I am also sincerely grateful to the Practice School Division, BITS Pilani, for conducting this Program and allowing me to explore this field of work.
+    \end{itemize}
 
-% \begin{acknowledgements}
-%     \lipsum[1-2]
-% \end{acknowledgements}
+\end{acknowledgements}
 
 %-------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -94,8 +100,8 @@
 \addtocontents{toc}{\vspace{1em}}
 
 % Set the left side page header to "List of Figures"
-% \lhead{\emph{List of Figures}}
-% \listoffigures % Write out the List of Figures
+\lhead{\emph{List of Figures}}
+\listoffigures % Write out the List of Figures
 
 % Set the left side page header to "List of Tables"
 % \lhead{\emph{List of Tables}}
@@ -115,8 +121,9 @@
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
     \textbf{API} & \textbf{A}pplication \textbf{P}rogram \textbf{I}nterface \\
-    \textbf{OEM} & \textbf{O}riginal \textbf{E}quipment \textbf{M}anufacturer \\
+    \textbf{STLC} & \textbf{S}oftware \textbf{T}est \textbf{L}ife \textbf{C}ycle \\
     \textbf{wBMS} & \textbf{w}ireless \textbf{B}attery \textbf{M}onitoring \textbf{S}ystem \\
+    \textbf{RTM} & \textbf{R}esponsibility \textbf{T}raceablity \textbf{M}atrix
 }
 
 %-------------------------------------------------------------------------------
@@ -195,6 +202,6 @@
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
 
-% \printbibliography
+\printbibliography
 
 \end{document}
